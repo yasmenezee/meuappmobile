@@ -1,6 +1,11 @@
-import React from 'react';
-import Inicio from '../../src/telas/autenticacao/TelaInicial'; 
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import NavegacaoStack from "../../src/navegacao/NavegacaoStack";
 
-export default function HomeScreen() {
-  return <Inicio />;
+export default function App() {
+  return (
+    <NavigationContainer>
+      <NavegacaoStack />
+    </NavigationContainer>
+  );
 }

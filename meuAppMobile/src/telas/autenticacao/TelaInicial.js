@@ -14,116 +14,134 @@ export default function Inicio() {
       source={require("../../../assets/images/fundo.png")}
       style={styles.background}
     >
-      {/* OVERLAY: Aumente a opacidade para escurecer mais o fundo (ex: rgba(0,0,0,0.7)) */}
       <View style={styles.overlay}>
-      
-        {/* LOGO: Verifique se o nome do estilo está correto (deve ser "logo" e não "Logo") */}
-        <Image source={require("../../../assets/images/Logo.png")} style={styles.logo} />
+        {/* CONTEÚDO PRINCIPAL (logo, estrelas, textos) */}
+        <View style={styles.contentContainer}>
+         <View style={styles.hotel}>
+          <Image source={require("../../../assets/images/Logo.png")} style={styles.logo} />
+          </View>
 
+          <View style={styles.starsContainer}>
+            <Image source={require("../../../assets/images/star.png")} style={styles.star} />
+            <Image source={require("../../../assets/images/star.png")} style={styles.star} />
+            <Image source={require("../../../assets/images/star.png")} style={styles.star} />
+            <Image source={require("../../../assets/images/star.png")} style={styles.star} />
+            <Image source={require("../../../assets/images/star.png")} style={styles.star} />
+          </View>
 
-
-        <View style={styles.starsContainer}>
-          <Image source={require("../../../assets/images/star.png")} style={styles.star} />
-          <Image source={require("../../../assets/images/star.png")} style={styles.star} />
-          <Image source={require("../../../assets/images/star.png")} style={styles.star} />
-          <Image source={require("../../../assets/images/star.png")} style={styles.star} />
-          <Image source={require("../../../assets/images/star.png")} style={styles.star} />
+          <Text style={styles.slogan}>
+            Aqui, o relógio se rende ao seu compasso
+          </Text>
+          <Text style={styles.subtitle}>
+            Um hotel que é menos lugar, mais estado de espírito
+          </Text>
         </View>
 
-    
-        <Text style={styles.slogan}>
-          Aqui, o relógio se rende ao seu compasso
-        </Text>
-        <Text style={styles.subtitle}>
-          Um hotel que é menos lugar, mais estado de espírito
-        </Text>
+        {/* DIV SEPARADA PARA OS BOTÕES */}
+        <View style={styles.buttonsContainer}>
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>Prosseguir para login</Text>
+          </TouchableOpacity>
 
-        {/* BOTÕES: Diferenciar o visual do segundo botão (transparente com borda) */}
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Prosseguir para login</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.buttonRegister}>
-          <Text style={styles.buttonText}>Criar minha conta</Text>
-        </TouchableOpacity>
+          <TouchableOpacity style={styles.buttonRegister}>
+            <Text style={styles.buttonTextRegister}>Criar minha conta</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </ImageBackground>
   );
 }
 
-  const styles = StyleSheet.create({
-    background: {
-      flex: 1,
-      resizeMode: "cover",
-      justifyContent: "center",
-    },
-  overlay: {
-    backgroundColor: "rgba(0,0,0,0.6)", // Aumentei para 0.6
-    flex: 1, // Adicionei para ocupar toda a tela
-    justifyContent: "center", // Centraliza o conteúdo verticalmente
-    alignItems: "center",
-    padding: 20, // Mantive o padding interno
+const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center",
   },
+
+  overlay: {
+    backgroundColor: "rgba(0,0,0,0.6)",
+    flex: 1,
+    justifyContent: "space-between", // Alterado para distribuir espaço entre as divs
+    alignItems: "center",
+    padding: 20,
+  },
+
+  hotel: {
+    marginTop: 0,
+    marginBottom: 0,
+  },
+
+  contentContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 0,
+  },
+
+  buttonsContainer: {
+    width: "100%",
+    marginBottom: 30,
+  },
+
   logo: {
     width: 200,
     height: 200,
     resizeMode: "contain",
-    position: 'absolute', 
-    top: 30,            
-    alignSelf: 'center',  
   },
-    title: {
-      fontSize: 26,
-      color: "#fff",
-      fontWeight: "bold",
-      marginBottom: 10,
-    },
-    starsContainer: {
-      flexDirection: "row",
-      marginBottom: 60,
-      marginLeft: 10,
-      gap: 10,
-    },
-    star: {
-      width: 25,
-      height: 25,
-      marginHorizontal: 2,
-      resizeMode: "contain",
-     
-    },
-    slogan: {
-      fontSize: 24,
-      color: "#fff",
-      textAlign: "center",
-      marginBottom: 5,
-      fontWeight: "600",
-    },
-    subtitle: {
-      fontSize: 16,
-      color: "#ddd",
-      textAlign: "center",
-      marginBottom: 180,
-      fontWeight: "500",
-    },
-    button: {
-      backgroundColor: "#", 
-      paddingVertical: 12,
-      borderRadius: 10,
-      marginTop: 220,
-      width: "100%",
-      alignItems: "center",
-    },
-    buttonText: {
-      color: "#fff",
-      fontSize: 16,
-      fontWeight: "bold",
-    },
-    buttonRegister: {
-      backgroundColor: "#00405C",
-      paddingVertical: 12,
-      borderRadius: 10,
-      marginTop: 10,
-      width: "100%",
-      alignItems: "center",
-    },
-  });
+
+  starsContainer: {
+    flexDirection: "row",
+    marginBottom: 20,
+    marginTop: -50, // Ajuste para descer as estrelas
+    gap: 8,
+    marginLeft: 35,
+  },
+
+  star: {
+    width: 25,
+    height: 25,
+    marginHorizontal: 2,
+  },
+
+  slogan: {
+    fontSize: 24,
+    color: "#fff",
+    textAlign: "center",
+    marginBottom: 10,
+    marginTop: 40,
+    fontWeight: "600",
+  },
+  subtitle: {
+    fontSize: 16,
+    color: "#ddd",
+    textAlign: "center",
+    marginBottom: 40,
+    fontWeight: "500",
+  },
+  button: {
+    backgroundColor: "#006494",
+    paddingVertical: 12,
+    borderRadius: 12,
+    width: "100%",
+    alignItems: "center",
+    marginBottom: 12,
+  },
+  buttonText: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "bold",
+
+  },
+  buttonRegister: {
+    backgroundColor: "#00405C",
+    paddingVertical: 12,
+    borderRadius: 12,
+    width: "100%",
+    alignItems: "center",
+  },
+  buttonTextRegister: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+});

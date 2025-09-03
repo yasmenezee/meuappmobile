@@ -21,7 +21,7 @@ export default function TabTwoScreen() {
         />
       }>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Explore</ThemedText>
+        <ThemedText type="title">fjhjkahfjashklashf</ThemedText>
       </ThemedView>
       <ThemedText>This app includes example code to help you get started.</ThemedText>
       <Collapsible title="File-based routing">
@@ -100,11 +100,10 @@ const styles = StyleSheet.create({
   headerImage: {
     color: '#808080',
     bottom: -90,
-    left: -35,
-    position: 'absolute',
+    left: -65,
   },
   titleContainer: {
     flexDirection: 'row',
-    gap: 8,
+    gap: 16,
   },
 });
