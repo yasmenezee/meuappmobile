@@ -56,4 +56,8 @@ android/.settings/
 .idea/
 
 # Misc
+<<<<<<< HEAD
 coverage/
+=======
+coverage/
+>>>>>>> f26bf8e036c5f47625214c3fd2d89ca911a1d68c

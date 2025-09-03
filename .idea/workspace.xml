@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c6734db-be82-4d6d-8025-86e562e70c8e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/meuAppMobile/app/(tabs)/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/meuAppMobile/app/(tabs)/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/meuAppMobile/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/meuAppMobile/app/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/meuAppMobile/expo-env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/meuAppMobile/expo-env.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/meuAppMobile/src/navegacao/NavegacaoStack.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/meuAppMobile/src/telas/autenticacao/Cadastro.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/meuAppMobile/src/telas/autenticacao/Login.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/meuAppMobile/src/telas/autenticacao/RecuperarSenha.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/meuAppMobile/src/telas/autenticacao/TelaInicial.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meuAppMobile/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/meuAppMobile/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meuAppMobile/app/auth/Cadastro.js" beforeDir="false" afterPath="$PROJECT_DIR$/meuAppMobile/app/auth/Cadastro.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +38,7 @@
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Merging main",
     "last_opened_file_path": "C:/Users/SEDUC DEST2/Desktop/meuappmobile"
   }
 }]]></component>
