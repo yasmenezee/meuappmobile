@@ -1,11 +1,5 @@
-import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import NavegacaoStack from "../../src/navegacao/NavegacaoStack";
+import { Slot } from "expo-router";
 
 export default function App() {
-  return (
-    <NavigationContainer>
-      <NavegacaoStack />
-    </NavigationContainer>
-  );
+  return <Slot />;
 }

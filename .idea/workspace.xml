@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5c6734db-be82-4d6d-8025-86e562e70c8e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/meuAppMobile/app/(tabs)/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/meuAppMobile/app/(tabs)/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meuAppMobile/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/meuAppMobile/app/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meuAppMobile/expo-env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/meuAppMobile/expo-env.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meuAppMobile/src/navegacao/NavegacaoStack.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/meuAppMobile/src/telas/autenticacao/Cadastro.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/meuAppMobile/src/telas/autenticacao/Login.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/meuAppMobile/src/telas/autenticacao/RecuperarSenha.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/meuAppMobile/src/telas/autenticacao/TelaInicial.js" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="32CFaBKHHWx6S30i2zhBSAkVVXa" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/SEDUC DEST2/Desktop/meuappmobile"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5c6734db-be82-4d6d-8025-86e562e70c8e" name="Changes" comment="" />
+      <created>1756916711040</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1756916711040</updated>
+    </task>
+    <servers />
+  </component>
+</project>
