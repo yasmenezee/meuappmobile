@@ -6,12 +6,12 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Login from "../../app/auth/Login";
 import Cadastro from "../../app/auth/Cadastro";
 import RecuperarSenha from "../../app/auth/RecuperarSenha";
-import TelaInicial from "../../app/auth/TelaInicial";
+import TelaInicial from "../../app/auth/principal/TelaInicial";
 
 // Telas que ficam dentro das Tabs
 import Perfil from "../perfil/perfil";
 import Reserva from "../reserva/Reserva";
-import Principal from "../principal/Home";
+import Principal from "../../app/auth/Home";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();

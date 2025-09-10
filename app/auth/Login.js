@@ -12,8 +12,8 @@ import {
 import { useRouter } from "expo-router";
 import { MaterialIcons } from "@expo/vector-icons";
 
-// Componente principal da tela de cadastro
-export default function Cadastro() {
+// Componente principal da tela de login
+export default function Login() {
     // Estados dos campos
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
@@ -83,11 +83,19 @@ export default function Cadastro() {
                     </View>
                 </View>
 
-                <TouchableOpacity style={styles.sa}>
+                {/* Botão para recuperar senha */}
+                <TouchableOpacity
+                    onPress={() => router.push("/auth/RecuperarSenha")}
+                    style={styles.sa}
+                >
                     <Text style={styles.texto}>Esqueceu sua senha?</Text>
                 </TouchableOpacity>
-                {/* Botão Criar Conta */}
-                <TouchableOpacity onPress={() => router.push("/src/principal/Home")} style={styles.button}>
+
+                {/* Botão para entrar na home */}
+                <TouchableOpacity
+                    onPress={() => router.push("/auth/TelaInicial")}
+                    style={styles.button}
+                >
                     <Text style={styles.buttonText}>Entrar</Text>
                 </TouchableOpacity>
             </ScrollView>
@@ -183,5 +191,8 @@ const styles = StyleSheet.create({
         color: "#fff",
         fontSize: 16,
         fontWeight: "bold",
+    },
+    sa: {
+        // Adicione estilo para o botão de recuperar senha se quiser
     },
 });
