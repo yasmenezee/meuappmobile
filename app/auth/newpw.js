@@ -15,8 +15,8 @@ import { MaterialIcons } from "@expo/vector-icons";
 // Componente principal da tela de login
 export default function Login() {
     // Estados dos campos
-    const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
+    const [confirmarSenha, setConfirmarSenha] = useState("");
     const router = useRouter();
 
     return (
@@ -37,32 +37,13 @@ export default function Login() {
                 <View style={styles.formContainer}>
                     {/* Logo e nome do hotel */}
                     <View style={styles.headerRow}>
-                        <Image
-                            source={require("../../assets/images/Logo.png")}
-                            style={styles.logo}
-                        />
                     </View>
                 </View>
                 <View style={styles.inputs}>
-                    {/* Campo Email */}
-                    <Text style={styles.label}>Email</Text>
-                    <View style={styles.inputWrapper}>
-                        <MaterialIcons
-                            name="alternate-email"
-                            size={15}
-                            color="#000"
-                            style={styles.icon}
-                        />
-                        <TextInput
-                            style={styles.input}
-                            placeholder="Digite seu email"
-                            placeholderTextColor="#000"
-                            value={email}
-                            onChangeText={setEmail}
-                            keyboardType="email-address"
-                        />
-                    </View>
-
+                    {/* Texto acima dos inputs */}
+                    <Text style={{ color: '#fff', fontSize: 25, textAlign: 'center', marginBottom: 40, fontWeight: 'intermedium' }}>
+                        Digite a sua nova Senha
+                    </Text>
                     {/* Campo Senha */}
                     <Text style={styles.label}>Senha</Text>
                     <View style={styles.inputWrapper}>
@@ -81,6 +62,25 @@ export default function Login() {
                             secureTextEntry
                         />
                     </View>
+
+                    {/* Campo Confirmar Senha */}
+                    <Text style={styles.label}>Confirmar Senha:</Text>
+                    <View style={styles.inputWrapper}>
+                        <MaterialIcons
+                            name="lock-outline"
+                            size={15}
+                            color="#000"
+                            style={styles.icon}
+                        />
+                        <TextInput
+                            style={styles.input}
+                            placeholder="Confirme sua senha"
+                            placeholderTextColor="#000"
+                            value={confirmarSenha}
+                            onChangeText={setConfirmarSenha}
+                            secureTextEntry
+                        />
+                    </View>
                 </View>
 
                 {/* Botão para recuperar senha */}
@@ -88,7 +88,7 @@ export default function Login() {
                     onPress={() => router.push("/auth/RecuperarSenha")}
                     style={styles.sa}
                 >
-                    <Text style={styles.texto}>Esqueceu sua senha?</Text>
+                    
                 </TouchableOpacity>
 
                 {/* Botão para entrar na home */}
@@ -96,7 +96,7 @@ export default function Login() {
                     onPress={() => router.push("/auth/TelaInicial")}
                     style={styles.button}
                 >
-                    <Text style={styles.buttonText}>Entrar</Text>
+                    <Text style={styles.buttonText}>Redefinir Senha</Text>
                 </TouchableOpacity>
             </ScrollView>
         </View>
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
     texto: {
         color: "#fff",
         fontSize: 11,
-        fontWeight: "semibold",
+        fontWeight: "intermediate",
         textAlign: "right",
         marginRight: 20,
     },

@@ -14,13 +14,6 @@ export default function RecuperarSenha() {
   const router = useRouter();
 
   // Função chamada ao clicar no botão "Enviar"
-  const handleEnviar = () => {
-    if (!email) {
-      alert("Por favor, digite seu email"); // validação simples para campo obrigatório
-      return;
-    }
-    alert(`Enviado link de recuperação para ${email}`); // simulação do envio do email
-  };
 
   return (
     <View style={{ flex: 1 }}>
@@ -49,7 +42,7 @@ export default function RecuperarSenha() {
           onChangeText={setEmail} // atualiza estado ao digitar
         />
         {/* Botão enviar */}
-        <TouchableOpacity style={styles.button} onPress={handleEnviar}>
+        <TouchableOpacity style={styles.button} onPress={() => router.push("/auth/pwconfirm")}>
           <Text style={styles.buttonText}>Enviar</Text>
         </TouchableOpacity>
 
@@ -114,7 +107,7 @@ const styles = StyleSheet.create({
     marginBottom: 25, // margem abaixo para espaçamento
   },
   buttonText: {
-    color: "#FFF", // cor branca do texto do botão
+    color: "#fff", // cor branca do texto do botão
     fontSize: 16, // tamanho da fonte do texto do botão
     fontWeight: "bold", // texto em negrito
   },

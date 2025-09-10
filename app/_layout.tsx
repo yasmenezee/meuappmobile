@@ -20,11 +20,12 @@ export default function RootLayout() {
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <Stack screenOptions={{ headerShown: false }}>
         {/*  Fluxo de autenticação */}
-        <Stack.Screen name="src/principal/Home.js" />
+        <Stack.Screen name="src/principal/Home" />
         <Stack.Screen name="auth/TelaInicial" />
         <Stack.Screen name="auth/Login" />
         <Stack.Screen name="auth/Cadastro" />
         <Stack.Screen name="auth/RecuperarSenha" />
+        <Stack.Screen name="auth/pwconfirm" />
 
         {/*  Fluxo principal (tabs) */}
         <Stack.Screen name="(tabs)" />
