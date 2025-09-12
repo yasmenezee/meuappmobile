@@ -93,7 +93,7 @@ export default function Login() {
 
                 {/* Botão para entrar na home */}
                 <TouchableOpacity
-                    onPress={() => router.push("/auth/TelaInicial")}
+                    onPress={() => router.push("/home/home")}
                     style={styles.button}
                 >
                     <Text style={styles.buttonText}>Entrar</Text>
