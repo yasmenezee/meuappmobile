@@ -1,56 +1,82 @@
-import React from "react";
-import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from "react-native";
-import CustomHeader from "../../components/header";
-import CustomBottomNav from "../../components/bottomNav";
+import React, { useRef } from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ImageBackground,
+  Image,
+  Dimensions,
+  TouchableOpacity,
+} from "react-native";
+import Header from "../../components/header";
+import BottomNav from "../../components/bottomNav";
+import Carousel from "react-native-reanimated-carousel";
 
-export default function TelaInicial() {
+const { width } = Dimensions.get("window");
+
+const rooms = [
+  {
+    id: "1",
+    title: "Quarto Aconchegante & Moderno",
+    description:
+      "Conforto e elegância em um ambiente acolhedor.\n\n- Cama confortável\n- Decoração moderna\n- Iluminação suave\n- Ar-condicionado\n- Janela ampla",
+    image: require("../../assets/images/quartoimg.png"), // placeholder
+  },
+];
+
+export default function Home() {
+  // react-native-reanimated-carousel does not use ref for imperative control in this use case
+
+  // react-native-reanimated-carousel expects renderItem to receive { item, index }
+  const renderItem = ({ item, index }) => (
+    <View style={styles.card} key={item.id || index}>
+      <Image source={item.image} style={styles.roomImage} resizeMode="cover" />
+      <View style={styles.cardContent}>
+        <Text style={styles.roomTitle}>{item.title}</Text>
+        <Text style={styles.roomDescription}>{item.description}</Text>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}>Ver Detalhes</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+
   return (
-    <View style={{ flex: 1 }}>
-      <CustomHeader />
-      <ScrollView style={styles.container} contentContainerStyle={{ paddingBottom: 80 }}>
-        {/* Logo e título */}
-        <View style={styles.header}>
-          <Image
-            source={require("../../assets/images/imagemCadastro.png")}
-            style={styles.logo}
-            resizeMode="contain"
-          />
-          <Text style={styles.hotelName}>Hotel{"\n"}Brasileiro</Text>
-        </View>
-
-        {/* Saudação */}
-        <Text style={styles.greeting}>Olá, [Usuário]</Text>
-
-        {/* Título Seção */}
-        <Text style={styles.sectionTitle}>Quartos</Text>
-        <Text style={styles.sectionSubtitle}>
-          Clique em um quarto e agende sua estadia
-        </Text>
-
-        {/* Card do Quarto */}
-        <View style={styles.card}>
-          <Image
-            source={require("../../assets/images/imagemCadastro.png")}
-            style={styles.cardImage}
-          />
-          <View style={styles.cardContent}>
-            <Text style={styles.cardTitle}>Quarto Aconchegante & Moderno</Text>
-            <Text style={styles.cardText}>
-              Conforto e elegância em um ambiente acolhedor.{"\n"}
-              • Cama confortável com roupa de cama sofisticada{"\n"}
-              • Decoração com plantas e quadros artísticos{"\n"}
-              • Iluminação suave e moderna{"\n"}
-              • Ar-condicionado para o seu bem-estar{"\n"}
-              • Janela ampla com luz natural
+    <View style={styles.container}>
+      <Header />
+      <ScrollView contentContainerStyle={{ paddingBottom: 80 }}>
+        {/* Top Image with Overlay */}
+        <ImageBackground
+          source={require("../../assets/images/homeBack.png")} // placeholder
+          style={styles.topImage}
+        >
+          <View style={styles.overlayTextContainer}>
+            <Text style={styles.overlayText}>
+              Aqui, o relógio se rende ao seu compasso
             </Text>
-
-            <TouchableOpacity style={styles.button}>
-              <Text style={styles.buttonText}>Ver Detalhes</Text>
-            </TouchableOpacity>
           </View>
+        </ImageBackground>
+
+        {/* Rooms Section */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Quartos</Text>
+          <Text style={styles.sectionSubtitle}>
+            Clique em um quarto e agende sua estadia
+          </Text>
+
+          <Carousel
+            width={width * 0.8}
+            height={400}
+            data={rooms}
+            renderItem={renderItem}
+            style={{ marginTop: 20, alignSelf: 'center' }}
+            loop={false}
+            autoPlay={false}
+            panGestureHandlerProps={{ activeOffsetX: [-10, 10] }}
+          />
         </View>
       </ScrollView>
-      <CustomBottomNav />
+      <BottomNav />
     </View>
   );
 }
@@ -58,75 +84,70 @@ export default function TelaInicial() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#0a2a43", // fundo azul escuro
+    backgroundColor: "#0D2B3E",
+  },
+  topImage: {
+    width: "100%",
+    height: 200,
+    justifyContent: "flex-end",
+  },
+  overlayTextContainer: {
     padding: 20,
   },
-  header: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 25,
-  },
-  logo: {
-    width: 50,
-    height: 50,
-    marginRight: 10,
-  },
-  hotelName: {
-    color: "#fff",
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  greeting: {
+  overlayText: {
     color: "#fff",
     fontSize: 18,
-    fontWeight: "600",
-    marginBottom: 20,
+    fontWeight: "500",
+  },
+  section: {
+    padding: 20,
   },
   sectionTitle: {
-    color: "#fff",
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: "bold",
+    color: "#fff",
+    marginBottom: 5,
   },
   sectionSubtitle: {
+    fontSize: 16,
     color: "#fff",
-    marginBottom: 20,
   },
   card: {
     backgroundColor: "#fff",
     borderRadius: 12,
     overflow: "hidden",
-    marginBottom: 20,
     shadowColor: "#000",
     shadowOpacity: 0.2,
-    shadowRadius: 5,
+    shadowRadius: 4,
+    shadowOffset: { width: 0, height: 2 },
     elevation: 3,
   },
-  cardImage: {
+  roomImage: {
     width: "100%",
     height: 150,
   },
   cardContent: {
     padding: 15,
   },
-  cardTitle: {
-    fontSize: 16,
+  roomTitle: {
+    fontSize: 18,
     fontWeight: "bold",
-    marginBottom: 8,
+    marginBottom: 5,
   },
-  cardText: {
+  roomDescription: {
     fontSize: 14,
     color: "#555",
-    marginBottom: 15,
+    marginBottom: 10,
   },
   button: {
-    backgroundColor: "#006699",
-    paddingVertical: 12,
+    backgroundColor: "#006494",
+    paddingVertical: 10,
     borderRadius: 8,
     alignItems: "center",
   },
   buttonText: {
     color: "#fff",
     fontWeight: "bold",
-    fontSize: 15,
+    fontSize: 16,
   },
 });
