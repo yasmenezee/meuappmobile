@@ -19,15 +19,15 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <Stack screenOptions={{ headerShown: false }}>
+        {/*  Fluxo principal (tabs) */}
+        <Stack.Screen name="(tabs)/index" />
+
         {/*  Fluxo de autenticação */}
         <Stack.Screen name="auth/Login" />
         <Stack.Screen name="auth/Cadastro" />
         <Stack.Screen name="auth/RecuperarSenha" />
         <Stack.Screen name="auth/pwconfirm" />
         <Stack.Screen name="home/home" />
-
-        {/*  Fluxo principal (tabs) */}
-        <Stack.Screen name="(tabs)" />
 
         {/*  Página de erro */}
         <Stack.Screen name="+not-found" />

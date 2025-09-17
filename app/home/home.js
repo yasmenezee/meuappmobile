@@ -1,51 +1,57 @@
 import React from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from "react-native";
+import CustomHeader from "../../components/header";
+import CustomBottomNav from "../../components/bottomNav";
 
 export default function TelaInicial() {
   return (
-    <ScrollView style={styles.container}>
-      {/* Logo e título */}
-      <View style={styles.header}>
-        <Image
-          source={require("../../assets/images/imagemCadastro.png")}
-          style={styles.logo}
-          resizeMode="contain"
-        />
-        <Text style={styles.hotelName}>Hotel{"\n"}Brasileiro</Text>
-      </View>
-
-      {/* Saudação */}
-      <Text style={styles.greeting}>Olá, [Usuário]</Text>
-
-      {/* Título Seção */}
-      <Text style={styles.sectionTitle}>Quartos</Text>
-      <Text style={styles.sectionSubtitle}>
-        Clique em um quarto e agende sua estadia
-      </Text>
-
-      {/* Card do Quarto */}
-      <View style={styles.card}>
-        <Image
-          source={require("../../assets/images/imagemCadastro.png")}
-          style={styles.cardImage}
-        />
-        <View style={styles.cardContent}>
-          <Text style={styles.cardTitle}>Quarto Aconchegante & Moderno</Text>
-          <Text style={styles.cardText}>
-            Conforto e elegância em um ambiente acolhedor.{"\n"}
-            • Cama confortável com roupa de cama sofisticada{"\n"}
-            • Decoração com plantas e quadros artísticos{"\n"}
-            • Iluminação suave e moderna{"\n"}
-            • Ar-condicionado para o seu bem-estar{"\n"}
-            • Janela ampla com luz natural
-          </Text>
-
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Ver Detalhes</Text>
-          </TouchableOpacity>
+    <View style={{ flex: 1 }}>
+      <CustomHeader />
+      <ScrollView style={styles.container} contentContainerStyle={{ paddingBottom: 80 }}>
+        {/* Logo e título */}
+        <View style={styles.header}>
+          <Image
+            source={require("../../assets/images/imagemCadastro.png")}
+            style={styles.logo}
+            resizeMode="contain"
+          />
+          <Text style={styles.hotelName}>Hotel{"\n"}Brasileiro</Text>
         </View>
-      </View>
-    </ScrollView>
+
+        {/* Saudação */}
+        <Text style={styles.greeting}>Olá, [Usuário]</Text>
+
+        {/* Título Seção */}
+        <Text style={styles.sectionTitle}>Quartos</Text>
+        <Text style={styles.sectionSubtitle}>
+          Clique em um quarto e agende sua estadia
+        </Text>
+
+        {/* Card do Quarto */}
+        <View style={styles.card}>
+          <Image
+            source={require("../../assets/images/imagemCadastro.png")}
+            style={styles.cardImage}
+          />
+          <View style={styles.cardContent}>
+            <Text style={styles.cardTitle}>Quarto Aconchegante & Moderno</Text>
+            <Text style={styles.cardText}>
+              Conforto e elegância em um ambiente acolhedor.{"\n"}
+              • Cama confortável com roupa de cama sofisticada{"\n"}
+              • Decoração com plantas e quadros artísticos{"\n"}
+              • Iluminação suave e moderna{"\n"}
+              • Ar-condicionado para o seu bem-estar{"\n"}
+              • Janela ampla com luz natural
+            </Text>
+
+            <TouchableOpacity style={styles.button}>
+              <Text style={styles.buttonText}>Ver Detalhes</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </ScrollView>
+      <CustomBottomNav />
+    </View>
   );
 }
 
