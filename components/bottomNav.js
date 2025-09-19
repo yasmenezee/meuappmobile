@@ -1,5 +1,5 @@
 import React from "react";
-import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
+import { View, TouchableOpacity, StyleSheet, Image } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
 export default function BottomNav() {
@@ -12,15 +12,31 @@ export default function BottomNav() {
         style={route.name === "Home" ? styles.active : styles.button}
         onPress={() => navigation.navigate("Home")}
       >
-        <Text style={styles.text}>Home</Text>
+        <Image
+          source={require("../assets/images/home-img.png")}
+          style={styles.iconhome}
+        />
       </TouchableOpacity>
       <TouchableOpacity
         style={route.name === "Sobre" ? styles.active : styles.button}
         onPress={() => navigation.navigate("Sobre")}
       >
-        <Text style={styles.text}>Sobre</Text>
+        <Image
+          source={require("../assets/images/chat-img.png")}
+          style={styles.iconchat}
+        />
       </TouchableOpacity>
-      {/* Add more buttons as needed */}
+
+      <TouchableOpacity
+        style={route.name === "Sobre" ? styles.active : styles.button}
+        onPress={() => navigation.navigate("Sobre")}
+      >
+        <Image
+          source={require("../assets/images/user-img.png")}
+          style={styles.iconuser}
+        />
+      </TouchableOpacity>
+      {/* Add more buttons with images as needed */}
     </View>
   );
 }
@@ -30,17 +46,18 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
-    height: 60,
-    backgroundColor: "#00405C",
+    height: 80,
+    backgroundColor: "#004F70",
     position: "absolute",
-    left: 0,
-    right: 0,
-    bottom: 0,
-    elevation: 8,
+    left: 20,
+    right: 20,
+    bottom: 60,
+    elevation: 10,
     shadowColor: "#000",
-    shadowOffset: { width: 0, height: -2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 2,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    borderRadius: 30, // Rounded corners for floating effect
   },
   button: {
     padding: 10,
@@ -50,8 +67,16 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
     borderBottomColor: "#fff",
   },
-  text: {
-    color: "#fff",
-    fontSize: 16,
+  iconuser: {
+    width: 34,
+    height: 36,
+  },
+  iconhome: {
+    width: 39,
+    height: 36,
+  },
+  iconchat: {
+    width: 41,
+    height: 36,
   },
 });

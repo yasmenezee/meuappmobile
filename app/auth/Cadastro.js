@@ -175,7 +175,6 @@ const styles = StyleSheet.create({
   label: {
     color: "#fff",
     fontSize: 16,
-    fontWeight: "600",
     marginBottom: 4,
     marginLeft: 2,
     fontWeight: "Light",

@@ -28,6 +28,9 @@ export default function RootLayout() {
         <Stack.Screen name="auth/RecuperarSenha" />
         <Stack.Screen name="auth/pwconfirm" />
         <Stack.Screen name="home/home" />
+        <Stack.Screen name="chat/chatPage" />
+        <Stack.Screen name="reservas/quartoDesc" />
+        <Stack.Screen name="user/userPage" />
 
         {/*  Página de erro */}
         <Stack.Screen name="+not-found" />
