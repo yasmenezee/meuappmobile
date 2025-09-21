@@ -9,8 +9,8 @@ export default function BottomNav() {
   return (
     <View style={styles.navbar}>
       <TouchableOpacity
-        style={route.name === "Home" ? styles.active : styles.button}
-        onPress={() => navigation.navigate("Home")}
+        style={route.name === "home" ? styles.active : styles.button}
+        onPress={() => navigation.navigate("home/home")}
       >
         <Image
           source={require("../assets/images/home-img.png")}
@@ -18,8 +18,8 @@ export default function BottomNav() {
         />
       </TouchableOpacity>
       <TouchableOpacity
-        style={route.name === "Sobre" ? styles.active : styles.button}
-        onPress={() => navigation.navigate("Sobre")}
+        style={route.name === "Chat" ? styles.active : styles.button}
+        onPress={() => navigation.navigate("chat/chatPage")}
       >
         <Image
           source={require("../assets/images/chat-img.png")}
@@ -28,8 +28,8 @@ export default function BottomNav() {
       </TouchableOpacity>
 
       <TouchableOpacity
-        style={route.name === "Sobre" ? styles.active : styles.button}
-        onPress={() => navigation.navigate("Sobre")}
+        style={route.name === "usuario" ? styles.active : styles.button}
+        onPress={() => navigation.navigate("user/userPage")}
       >
         <Image
           source={require("../assets/images/user-img.png")}

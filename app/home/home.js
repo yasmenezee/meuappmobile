@@ -12,6 +12,7 @@ import {
 import Header from "../../components/header";
 import BottomNav from "../../components/bottomNav";
 import Carousel from "react-native-reanimated-carousel";
+import { useRouter } from "expo-router";
 
 const { width } = Dimensions.get("window");
 
@@ -52,13 +53,15 @@ const encontros = [
 ];
 
 export default function Home() {
+const router = useRouter();
+
   const renderRoom = ({ item, index }) => (
     <View style={styles.card} key={item.id || index}>
       <Image source={item.image} style={styles.roomImage} resizeMode="cover" />
       <View style={styles.cardContent}>
         <Text style={styles.roomTitle}>{item.title}</Text>
         <Text style={styles.roomDescription}>{item.description}</Text>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity onPress={() => router.push("/reservas/quartoDesc")} style={styles.button}>
           <Text style={styles.buttonText}>Ver Detalhes</Text>
         </TouchableOpacity>
       </View>
@@ -92,13 +95,13 @@ export default function Home() {
         >
           <View style={styles.overlayTextContainer}>
             <Text style={styles.overlayText}>
-              Aqui, o relógio se rende ao seu compasso
+              Aqui, o relógio se rende ao seu {'\n'}compasso
             </Text>
           </View>
         </ImageBackground>
 
         {/* Rooms Section */}
-        <View style={styles.section}>
+        <View style={[styles.section, { marginBottom: 4 }]}>
           <Text style={styles.sectionTitle}>Quartos</Text>
           <Text style={styles.sectionSubtitle}>
             Clique em um quarto e agende sua estadia
@@ -117,7 +120,7 @@ export default function Home() {
         </View>
 
         {/* --- NOVA SEÇÃO DE ENCONTROS --- */}
-        <View style={styles.sectionencontros}>
+        <View style={[styles.sectionencontros, { marginTop: 20 }]}>
           <Text style={styles.sectionTitle}>Programamos encontros {'\n'}com o inesperado</Text>
 
           <Carousel
@@ -154,6 +157,7 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontWeight: "500",
     fontSize: 20,
+    fontFamily: "Poppins",
   },
   section: {
     paddingHorizontal: 20,
@@ -165,6 +169,7 @@ const styles = StyleSheet.create({
     height: 600,
   },
   sectionTitle: {
+    display: "flex",
     fontSize: 24,
     fontWeight: "bold",
     color: "#fff",
