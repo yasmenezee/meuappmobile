@@ -1,16 +1,19 @@
 import React from "react";
 import { View, TouchableOpacity, StyleSheet, Image } from "react-native";
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { useRouter, useSegments } from "expo-router";
 
 export default function BottomNav() {
-  const navigation = useNavigation();
-  const route = useRoute();
+  const router = useRouter();
+  const segments = useSegments();
+
+  // Get current route segment (e.g., "home", "chat", "user")
+  const currentRoute = segments[segments.length - 1];
 
   return (
     <View style={styles.navbar}>
       <TouchableOpacity
-        style={route.name === "home" ? styles.active : styles.button}
-        onPress={() => navigation.navigate("home/home")}
+        style={currentRoute === "home" ? styles.active : styles.button}
+        onPress={() => router.push("/home/home")}
       >
         <Image
           source={require("../assets/images/home-img.png")}
@@ -18,8 +21,8 @@ export default function BottomNav() {
         />
       </TouchableOpacity>
       <TouchableOpacity
-        style={route.name === "Chat" ? styles.active : styles.button}
-        onPress={() => navigation.navigate("chat/chatPage")}
+        style={currentRoute === "chatPage" ? styles.active : styles.button}
+        onPress={() => router.push("/chat/chatPage")}
       >
         <Image
           source={require("../assets/images/chat-img.png")}
@@ -28,8 +31,8 @@ export default function BottomNav() {
       </TouchableOpacity>
 
       <TouchableOpacity
-        style={route.name === "usuario" ? styles.active : styles.button}
-        onPress={() => navigation.navigate("user/userPage")}
+        style={currentRoute === "userPage" ? styles.active : styles.button}
+        onPress={() => router.push("/user/userPage")}
       >
         <Image
           source={require("../assets/images/user-img.png")}
@@ -46,10 +49,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
-    height: 80,
+    width: 350,
+    height: 75,
     backgroundColor: "#004F70",
     position: "absolute",
-    left: 20,
+    left: 33,
     right: 20,
     bottom: 60,
     elevation: 10,
@@ -68,15 +72,15 @@ const styles = StyleSheet.create({
     borderBottomColor: "#fff",
   },
   iconuser: {
-    width: 34,
-    height: 36,
+    width: 32,
+    height: 38,
   },
   iconhome: {
-    width: 39,
-    height: 36,
+    width: 36,
+    height: 34,
   },
   iconchat: {
-    width: 41,
-    height: 36,
+    width: 39,
+    height: 34,
   },
 });
