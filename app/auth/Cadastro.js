@@ -9,8 +9,9 @@ import {
   ImageBackground,
   ScrollView,
 } from "react-native";
-import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
+import { MaterialIcons } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
 
 // Componente principal da tela de cadastro
 export default function Cadastro() {
@@ -19,7 +20,13 @@ export default function Cadastro() {
   const [email, setEmail] = useState("");
   const [telefone, setTelefone] = useState("");
   const [senha, setSenha] = useState("");
+  const [confirmSenha, setConfirmSenha] = useState("");
   const router = useRouter();
+
+  // Envia o formulário para criar um novo cliente
+  const handleSubmit = () => {
+    router.push("/home/home");
+  };
 
   return (
     <View style={{ flex: 1 }}>
@@ -99,6 +106,7 @@ export default function Cadastro() {
               value={telefone}
               onChangeText={setTelefone}
               keyboardType="phone-pad"
+              maxLength={15}
             />
           </View>
 
@@ -120,9 +128,28 @@ export default function Cadastro() {
               secureTextEntry
             />
           </View>
+
+          {/* Campo Confirme a Senha */}
+          <Text style={styles.label}>Confirme a senha</Text>
+          <View style={styles.inputWrapper}>
+            <MaterialIcons
+              name="lock-outline"
+              size={15}
+              color="#000"
+              style={styles.icon}
+            />
+            <TextInput
+              style={[styles.input, { fontSize: 13 }]}
+              placeholder="Confirme sua senha"
+              placeholderTextColor="#000"
+              value={confirmSenha}
+              onChangeText={setConfirmSenha}
+              secureTextEntry
+            />
+          </View>
         </View>
         {/* Botão Criar Conta */}
-        <TouchableOpacity onPress={() => router.push("/src/principal/Home")} style={styles.button}>
+        <TouchableOpacity onPress={handleSubmit} style={styles.button}>
           <Text style={styles.buttonText}>Criar conta</Text>
         </TouchableOpacity>
       </ScrollView>
@@ -175,7 +202,6 @@ const styles = StyleSheet.create({
   label: {
     color: "#fff",
     fontSize: 16,
-    fontWeight: "600",
     marginBottom: 4,
     marginLeft: 2,
     fontWeight: "Light",

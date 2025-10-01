@@ -1,121 +1,180 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  StyleSheet,
-  ImageBackground,
-} from "react-native";
-import BottomNav from "../../components/bottomNav";
+import { View, Text, TouchableOpacity, StyleSheet, TextInput, Image } from "react-native";
 import { useRouter } from "expo-router";
+import BottomNav from "../../components/bottomNav";
 
-export default function RecuperarSenha() {
-  const [email, setEmail] = useState("");
-  const router = useRouter();
+export default function EditUser() {
+	const router = useRouter();
+	const [name, setName] = useState("");
+	const [email, setEmail] = useState("");
+	const [phone, setPhone] = useState("");
 
-  // Função chamada ao clicar no botão "Enviar"
+	return (
+		<View style={styles.container}>
 
-  return (
-    <View style={{ flex: 1 }}>
-      {/* Imagem de topo com overlay para escurecer a imagem */}
-      <View>
-        <ImageBackground
-          source={require("../../assets/images/imagemCadastro.png")} // imagem de fundo
-          style={styles.topImage} // estilo para ocupar largura total e altura fixa
-        >
-          <View style={styles.overlay} /> {/* camada semi-transparente preta */}
-        </ImageBackground>
-      </View>
 
-      {/* Container principal do conteúdo abaixo da imagem */}
-      <View style={styles.container}>
-        <Text style={styles.title}>route test</Text> {/* Título da tela */}
-        <Text style={styles.description}>
-          u pmo twin{"\n"} stg if you call me asking what's this im gonna crashout
-        </Text> {/* Descrição com instruções */}
-        <TextInput
-          style={styles.input} // estilo do campo texto
-          placeholder="Digite seu email" // texto padrão
-          placeholderTextColor="#999" // cor do placeholder
-          keyboardType="email-address" // teclado otimizado para email
-          value={email} // valor do campo conectado ao estado email
-          onChangeText={setEmail} // atualiza estado ao digitar
-        />
-        {/* Botão enviar */}
-        <TouchableOpacity style={styles.button} onPress={() => router.push("/auth/pwconfirm")}>
-          <Text style={styles.buttonText}>Enviar</Text>
-        </TouchableOpacity>
+                  <TouchableOpacity
+                    style={styles.backButton}
+                    onPress={() => router.push("/home/home")}
+                  >
+                    <Image
+                      source={require("../../assets/images/voltarBtn.png")}
+                      style={styles.backIcon}
+                    />
+                  </TouchableOpacity>
 
-        {/* Link para voltar à tela de login */}
-        <TouchableOpacity onPress={() => router.push("/auth/Login")}>
-          <Text style={styles.voltar}>Voltar para o login</Text>
-        </TouchableOpacity>
-      </View>
-            <BottomNav />
-    </View>
-  );
+			{/* Avatar e ícone de editar */}
+			<View style={styles.avatarContainer}>
+				<View style={styles.avatarCircle}>
+				</View>
+				<Text style={styles.userName}>Yasmin</Text>
+			</View>
+
+			{/* Campos de edição */}
+			<View style={styles.formContainer}>
+				<Text style={styles.label}>nome:</Text>
+				<TextInput
+					style={styles.input}
+					placeholder="Usuário"
+					placeholderTextColor="#a0aec0"
+					value={name}
+					onChangeText={setName}
+				/>
+				<Text style={styles.label}>e-mail:</Text>
+				<TextInput
+					style={styles.input}
+					placeholder="ex:exemplo@email.com"
+					placeholderTextColor="#a0aec0"
+					value={email}
+					onChangeText={setEmail}
+				/>
+				<Text style={styles.label}>Telefone:</Text>
+				<TextInput
+					style={styles.input}
+					placeholder="(55)5555-5555"
+					placeholderTextColor="#a0aec0"
+					value={phone}
+					onChangeText={setPhone}
+				/>
+				<TouchableOpacity style={styles.blueButton}>
+					<Text style={styles.blueButtonText}>Alterar senha</Text>
+				</TouchableOpacity>
+				<TouchableOpacity style={styles.blueButton}>
+					<Text style={styles.blueButtonText}>Salvar</Text>
+				</TouchableOpacity>
+			</View>
+      <BottomNav />
+		</View>
+	);
 }
 
-// Estilos usados na tela
 const styles = StyleSheet.create({
-  topImage: {
-    width: "100%", // ocupar toda largura da tela
-    height: 376, // altura fixa da imagem
-    resizeMode: "cover", // imagem cobre área preservando proporção
-  },
-  overlay: {
-    ...StyleSheet.absoluteFillObject, // ocupar toda área do pai
-    backgroundColor: "rgba(0,0,0,0.4)", // camada preta semi-transparente para escurecer imagem
-  },
- container: {
-  flex: 1,
-  paddingHorizontal: 20,
-  backgroundColor: "#0B2A3A",
-  justifyContent: "flex-start", // começa do topo, mas podemos usar 'center' ou 'flex-end'
-  paddingTop: 50, // também pode manter se quiser um espaçamento extra
-},
-
-  title: {
-    padding: 20,
-    marginTop: 10, // valor maior "desce" mais
-    fontSize: 20,
-    color: "#FFF",
-    marginVertical: 15,
-    fontWeight: "intermediate",
-  alignSelf: "center",
-},
-
-  description: {
-    color: "#E8F1F2", // cor do texto da descrição
-    fontSize: 15, // tamanho da fonte menor que título
-    marginBottom: 30, // espaçamento abaixo da descrição
-    textAlign: "center", // centralizado
-  },
-  input: {
-    backgroundColor: "#E8F1F2", // fundo claro para input
-    borderRadius: 10, // bordas arredondadas
-    paddingHorizontal: 15, // espaçamento interno horizontal
-    paddingVertical: 12, // espaçamento interno vertical
-    fontSize: 16, // tamanho da fonte do input
-    marginBottom: 40, // margem abaixo para espaçamento
-    color: "#000", // texto em preto
-  },
-  button: {
-    backgroundColor: "#006494", // cor azul do botão
-    borderRadius: 10, // bordas arredondadas
-    paddingVertical: 16, // altura do botão
-    alignItems: "center", // texto centralizado no botão
-    marginBottom: 25, // margem abaixo para espaçamento
-  },
-  buttonText: {
-    color: "#fff", // cor branca do texto do botão
-    fontSize: 16, // tamanho da fonte do texto do botão
-    fontWeight: "bold", // texto em negrito
-  },
-  voltar: {
-    color: "#FFF", // texto branco
-    fontSize: 13, // tamanho menor
-    textAlign: "center", // centralizado horizontalmente
+	container: {
+		flex: 1,
+		backgroundColor: '#0B2A3A',
+		paddingTop: 50,
+		paddingHorizontal: 18,
+		position: 'relative',
+	},
+	backIcon: {
+		color: '#fff',
+		fontSize: 28,
+		fontWeight: 'bold',
+		marginLeft: 2,
+		marginTop: -2,
+	},
+	avatarContainer: {
+		alignItems: 'center',
+		marginTop: 40,
+		marginBottom: 18,
+		position: 'relative',
+	},
+	avatarCircle: {
+		width: 160,
+		height: 160,
+		borderRadius: 5200,
+		backgroundColor: '#ffff',
+		marginBottom: 20,
+		alignItems: 'flex-end',
+		justifyContent: 'flex-end',
+		position: 'relative',
+	},
+	editIconBtn: {
+		position: 'absolute',
+		right: 6,
+		bottom: 6,
+		backgroundColor: '#23344A',
+		borderRadius: 12,
+		padding: 4,
+	},
+	editIcon: {
+		color: '#fff',
+		fontSize: 18,
+	},
+	userName: {
+		color: '#fff',
+		fontSize: 29,
+		fontWeight: 'bold',
+		textAlign: 'center',
+		marginBottom: 10,
+	},
+	formContainer: {
+		marginTop: 30,
+		marginBottom: 30,
+	},
+	label: {
+		color: '#fff',
+		fontSize: 15,
+		marginBottom: 2,
+		marginLeft: 6,
+	},
+	input: {
+		backgroundColor: '#23344A',
+		color: '#fff',
+		borderRadius: 15,
+		paddingHorizontal: 16,
+		paddingVertical: 10,
+		fontSize: 15,
+		marginBottom: 15,
+	},
+	blueButton: {
+		backgroundColor: '#006494',
+		borderRadius: 20,
+		paddingVertical: 12,
+		alignItems: 'center',
+		marginBottom: 30,
+	},
+	blueButtonText: {
+		color: '#fff',
+		fontWeight: 'bold',
+		fontSize: 16,
+	},
+	bottomNav: {
+		flexDirection: 'row',
+		justifyContent: 'space-around',
+		alignItems: 'center',
+		backgroundColor: '#23344A',
+		borderRadius: 18,
+		paddingVertical: 10,
+		position: 'absolute',
+		left: 10,
+		right: 10,
+		bottom: 10,
+	},
+	navBtn: {
+		flex: 1,
+		alignItems: 'center',
+	},
+	navIcon: {
+		fontSize: 28,
+		color: '#fff',
+	},
+        backButton: {
+    position: "absolute",
+    top: 60,
+    left: 30,
+    padding: 4,
+    backgroundColor: "rgba(0,0,0,0.3)",
+    borderRadius: 20,
   },
 });

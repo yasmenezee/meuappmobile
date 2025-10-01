@@ -57,6 +57,12 @@ export default function HomeScreen() {
             <Text style={styles.buttonTextRegister}>Criar minha conta</Text>
           </TouchableOpacity>
 
+          <TouchableOpacity
+            style={styles.buttonAltRoute}
+            onPress={() => router.push("/reservas/reservaConfirm")}
+          >
+            <Text style={styles.buttonTextRegister}>rota:</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </ImageBackground>
@@ -144,6 +150,15 @@ const styles = StyleSheet.create({
 
   },
   buttonRegister: {
+    backgroundColor: "#00405C",
+    paddingVertical: 12,
+    borderRadius: 12,
+    width: "100%",
+    alignItems: "center",
+  },
+    buttonAltRoute: {
+      marginTop: 20,
+      marginBottom: 20,
     backgroundColor: "#00405C",
     paddingVertical: 12,
     borderRadius: 12,

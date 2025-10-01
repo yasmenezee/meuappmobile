@@ -11,10 +11,20 @@ export default function ReservaHotel() {
     <View style={styles.container}>
       {/* Imagem ocupa metade do topo da tela */}
       <Image
-        source={require("../../../frontend-mobile/assets/images/reservaBg.png")}
+        source={require("../../assets/images/reservaBg.png")}
         style={styles.imagem}
         resizeMode="cover"
       />
+
+                  <TouchableOpacity
+                    style={styles.backButton}
+                    onPress={() => router.push("/home/home")}
+                  >
+                    <Image
+                      source={require("../../assets/images/voltarBtn.png")}
+                      style={styles.backIcon}
+                    />
+                  </TouchableOpacity>
 
       {/* Área inferior com informações do quarto */}
       <View style={styles.info}>
@@ -37,7 +47,6 @@ export default function ReservaHotel() {
           <Text style={styles.textoBotao}>Prosseguir</Text>
         </TouchableOpacity>
       </View>
-      <BottomNav />
     </View>
   );
 }
@@ -53,11 +62,14 @@ const styles = StyleSheet.create({
     height: "40%",
   },
   info: {
-    flex: 1,
-    backgroundColor: "#142c42",
-    padding: 20,
-    marginTop: -20,
-    borderRadius: 20, 
+     flex: 1,
+     backgroundColor: "#142c42",
+     padding: 20,
+     marginTop: -20,
+     borderTopLeftRadius: 20,
+     borderTopRightRadius: 20,
+     borderBottomLeftRadius: 0,
+     borderBottomRightRadius: 0,
   },
   titulo: {
     color: "#fff",
@@ -87,12 +99,21 @@ const styles = StyleSheet.create({
     backgroundColor: "#006494",
     borderRadius: 12,
     paddingVertical: 12,
-    marginTop: 50,
+    marginTop: 20,
     alignItems: "center",
   },
   textoBotao: {
     color: "#fff",
     fontWeight: "bold",
     fontSize: 16,
+  },
+
+      backButton: {
+    position: "absolute",
+    top: 60,
+    left: 30,
+    padding: 4,
+    backgroundColor: "rgba(0,0,0,0.3)",
+    borderRadius: 20,
   },
 });

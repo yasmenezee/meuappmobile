@@ -17,7 +17,13 @@ export default function Login() {
     // Estados dos campos
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
     const router = useRouter();
+
+    // Função para tratar o envio do formulário de login
+    const handleLogin = () => {
+        router.push("/home/home");
+    };
 
     return (
         <View style={{ flex: 1 }}>
@@ -78,22 +84,24 @@ export default function Login() {
                             placeholderTextColor="#000"
                             value={senha}
                             onChangeText={setSenha}
-                            secureTextEntry
+                            secureTextEntry={!showPassword}
                         />
+                        <TouchableOpacity
+                            onPress={() => setShowPassword((prev) => !prev)}
+                            style={{ marginLeft: 8 }}
+                        >
+                            <MaterialIcons
+                                name={showPassword ? "visibility-off" : "visibility"}
+                                size={20}
+                                color="#000"
+                            />
+                        </TouchableOpacity>
                     </View>
                 </View>
 
-                {/* Botão para recuperar senha */}
-                <TouchableOpacity
-                    onPress={() => router.push("/auth/RecuperarSenha")}
-                    style={styles.sa}
-                >
-                    <Text style={styles.texto}>Esqueceu sua senha?</Text>
-                </TouchableOpacity>
-
                 {/* Botão para entrar na home */}
                 <TouchableOpacity
-                    onPress={() => router.push("/home/home")}
+                    onPress={handleLogin}
                     style={styles.button}
                 >
                     <Text style={styles.buttonText}>Entrar</Text>

@@ -15,16 +15,26 @@ export default function ReservaHotel() {
 
   const [inicio, setInicio] = useState("");
   const [fim, setFim] = useState("");
-  const [pessoas, setPessoas] = useState("");
+  const [pessoas, setPessoas] = useState(0);
 
   return (
     <View style={styles.container}>
       {/* Imagem ocupa metade do topo da tela */}
       <Image
-        source={require("../../../frontend-mobile/assets/images/reservaBg.png")}
+        source={require("../../assets/images/reservaBg.png")}
         style={styles.imagem}
         resizeMode="cover"
       />
+
+            <TouchableOpacity
+              style={styles.backButton}
+              onPress={() => router.push("/reservas/quartoDesc")}
+            >
+              <Image
+                source={require("../../assets/images/voltarBtn.png")}
+                style={styles.backIcon}
+              />
+            </TouchableOpacity>
 
       {/* Área inferior com inputs */}
       <View style={styles.info}>
@@ -49,14 +59,21 @@ export default function ReservaHotel() {
         />
 
         <Text style={styles.label}>Quantidade de pessoas</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Ex: 2"
-          placeholderTextColor="#fff"
-          keyboardType="numeric"
-          value={pessoas}
-          onChangeText={setPessoas}
-        />
+        <View style={styles.counterContainer}>
+          <TouchableOpacity
+            style={styles.circleButton}
+            onPress={() => setPessoas(prev => Math.max(0, prev - 1))}
+          >
+            <Text style={styles.circleIcon}>−</Text>
+          </TouchableOpacity>
+          <Text style={styles.counterValue}>{pessoas}</Text>
+          <TouchableOpacity
+            style={styles.circleButton}
+            onPress={() => setPessoas(prev => prev + 1)}
+          >
+            <Text style={styles.circleIcon}>+</Text>
+          </TouchableOpacity>
+        </View>
 
         {/* Botão de reservar */}
         <TouchableOpacity
@@ -66,8 +83,6 @@ export default function ReservaHotel() {
           <Text style={styles.textoBotao}>Reservar</Text>
         </TouchableOpacity>
       </View>
-
-      <BottomNav />
     </View>
   );
 }
@@ -85,9 +100,10 @@ const styles = StyleSheet.create({
   info: {
     flex: 1,
     backgroundColor: "#142c42",
-    padding: 20,
+    padding: 25,
     marginTop: -20,
-    borderRadius: 20,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
   },
   titulo: {
     color: "#fff",
@@ -110,6 +126,41 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     fontSize: 16,
   },
+  counterContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    backgroundColor: "#006494",
+    borderRadius: 15,
+    paddingHorizontal: 16,
+    paddingVertical: 10,
+    marginBottom: 20,
+    marginTop: 5,
+  },
+  circleButton: {
+    width: 30,
+    height: 30,
+    borderRadius: 15,
+    backgroundColor: "#006494",
+    borderWidth: 2,
+    borderColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  circleIcon: {
+    color: "#fff",
+    fontSize: 24,
+    fontWeight: "bold",
+    textAlign: "center",
+    marginTop: -3.7,
+  },
+  counterValue: {
+    color: "#fff",
+    fontSize: 20,
+    fontWeight: "bold",
+    textAlign: "center",
+    minWidth: 40,
+  },
   botao: {
     backgroundColor: "#006494",
     borderRadius: 12,
@@ -121,5 +172,14 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontWeight: "bold",
     fontSize: 16,
+  },
+
+    backButton: {
+    position: "absolute",
+    top: 60,
+    left: 30,
+    padding: 4,
+    backgroundColor: "rgba(0,0,0,0.3)",
+    borderRadius: 20,
   },
 });

@@ -10,6 +10,7 @@ export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
+    Poppins: require("../assets/fonts/Poppins-Medium.ttf"),
   });
 
   if (!loaded) {
@@ -28,6 +29,13 @@ export default function RootLayout() {
         <Stack.Screen name="auth/RecuperarSenha" />
         <Stack.Screen name="auth/pwconfirm" />
         <Stack.Screen name="home/home" />
+        <Stack.Screen name="chat/chatPage" />
+        <Stack.Screen name="reservas/quartoDesc" />
+        <Stack.Screen name="reservas/reserva"/>
+        <Stack.Screen name="reservas/reservaConfirm" />
+        <Stack.Screen name="reservas/reservaFinish" />
+        <Stack.Screen name="user/userPage" />
+        
 
         {/*  Página de erro */}
         <Stack.Screen name="+not-found" />
