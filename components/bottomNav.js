@@ -1,45 +1,36 @@
 import React from "react";
-import { View, TouchableOpacity, StyleSheet, Image } from "react-native";
-import { useRouter, useSegments } from "expo-router";
+import { View, TouchableOpacity, StyleSheet } from "react-native";
+import { Image } from "react-native";
+
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 export default function BottomNav() {
-  const router = useRouter();
-  const segments = useSegments();
-
-  // Get current route segment (e.g., "home", "chat", "user")
-  const currentRoute = segments[segments.length - 1];
+  const navigation = useNavigation();
+  const route = useRoute();
 
   return (
     <View style={styles.navbar}>
       <TouchableOpacity
-        style={currentRoute === "home" ? styles.active : styles.button}
-        onPress={() => router.push("/home/home")}
+        style={route.name === "Home" ? styles.active : styles.button}
+        onPress={() => navigation.navigate("Home")}
       >
         <Image
-          source={require("../assets/images/home-img.png")}
-          style={styles.iconhome}
+          source={require('../assets/images/home-img.png')}
+          style={{ width: 34, height: 30 }}
         />
       </TouchableOpacity>
+      
       <TouchableOpacity
-        style={currentRoute === "chatPage" ? styles.active : styles.button}
-        onPress={() => router.push("/chat/chatPage")}
+        style={route.name === "Sobre" ? styles.active : styles.button}
+        onPress={() => navigation.navigate("Sobre")}
       >
+        {/* Replace with your desired SVG for Sobre */}
         <Image
-          source={require("../assets/images/chat-img.png")}
-          style={styles.iconchat}
+          source={require('../assets/images/chat-img.png')}
+          style={{ width: 34, height: 30 }}
         />
       </TouchableOpacity>
-
-      <TouchableOpacity
-        style={currentRoute === "userPage" ? styles.active : styles.button}
-        onPress={() => router.push("/user/userPage")}
-      >
-        <Image
-          source={require("../assets/images/user-img.png")}
-          style={styles.iconuser}
-        />
-      </TouchableOpacity>
-      {/* Add more buttons with images as needed */}
+      {/* Add more buttons as needed */}
     </View>
   );
 }
@@ -49,19 +40,18 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
-    width: 350,
-    height: 75,
-    backgroundColor: "#004F70",
+    height: 60,
+    backgroundColor: "#00405C",
     position: "absolute",
-    left: 33,
+    left: 20,
     right: 20,
-    bottom: 60,
-    elevation: 10,
+    bottom: 50,
+    borderRadius: 30,
+    elevation: 16,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
-    shadowRadius: 4,
-    borderRadius: 30, // Rounded corners for floating effect
+    shadowRadius: 8,
   },
   button: {
     padding: 10,
@@ -71,16 +61,8 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
     borderBottomColor: "#fff",
   },
-  iconuser: {
-    width: 32,
-    height: 38,
-  },
-  iconhome: {
-    width: 36,
-    height: 34,
-  },
-  iconchat: {
-    width: 39,
-    height: 34,
-  },
+  // text: {
+  //   color: "#fff",
+  //   fontSize: 16,
+  // },
 });
