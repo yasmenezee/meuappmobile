@@ -19,15 +19,7 @@ export default function ReservaConfirm({ navigation }) {
       style={styles.background}
     >
       {/* Back button */}
-      <TouchableOpacity
-        style={styles.backButton}
-        onPress={() => navigation.goBack()}
-      >
-        <Image
-          source={require("../../assets/images/voltarBtn.png")}
-          style={styles.backIcon}
-        />
-      </TouchableOpacity>
+
 
       {/* Bottom sheet */}
       <View style={styles.bottomSheet}>
