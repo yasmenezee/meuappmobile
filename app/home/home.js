@@ -63,6 +63,15 @@ export default function Home() {
       <View style={styles.cardContent}>
         <Text style={styles.roomTitle}>{item.nome}</Text>
         <Text style={styles.roomDescription}>{item.descricao}</Text>
+        {item.id === 1 && (
+          <Text style={styles.roomExtra}>
+            Cama confortável com roupa de cama sofisticada
+            {'\n'}Decoração com plantas e quadros artísticos
+            {'\n'}Iluminação suave e moderna
+            {'\n'}Ar-condicionado para o seu bem-estar
+            {'\n'}Janela ampla com luz natural
+          </Text>
+        )}
         <TouchableOpacity
           onPress={() => router.push(`/reservas/quartoDesc?id=${item.id}`)}
           style={styles.button}
@@ -92,8 +101,8 @@ export default function Home() {
 
   return (
     <View style={styles.container}>
-      <Header />
       <ScrollView contentContainerStyle={{ paddingBottom: 80 }}>
+        <Header />
         {/* Top Image with Overlay */}
         <ImageBackground
           source={require("../../assets/images/homeBack.png")}
@@ -228,6 +237,12 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: "#555",
     marginBottom: 10,
+  },
+  roomExtra: {
+    fontSize: 14,
+    color: "#555",
+    marginBottom: 12,
+    lineHeight: 20,
   },
   button: {
     backgroundColor: "#006494",

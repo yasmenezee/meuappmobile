@@ -57,8 +57,8 @@ export default function ReservaSuccess({ navigation }) {
 const styles = StyleSheet.create({
   background: {
     flex: 1,
-    width:500,
-    height: 600,
+    width:410,
+    height: 500,
     justifyContent: "flex-end", // keeps the sheet at the bottom
   },
 
@@ -67,7 +67,6 @@ const styles = StyleSheet.create({
     top: 60,
     left: 30,
     padding: 4,
-    backgroundColor: "rgba(0,0,0,0.3)",
     borderRadius: 20,
   },
 
@@ -79,7 +78,7 @@ const styles = StyleSheet.create({
 
   bottomSheet: {
     height: 500,
-    maxWidth: "100%",
+    maxWidth: 410,
     backgroundColor: "rgba(12,34,63)",
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
@@ -94,9 +93,9 @@ const styles = StyleSheet.create({
   },
 
     subtitle: {
-    fontSize: 16,
+    fontSize: 15,
     color: "#fff",
-    marginBottom: 20,
+    marginBottom: 30,
   },
 
   room: {
@@ -107,25 +106,30 @@ const styles = StyleSheet.create({
 
   label: {
     fontSize: 14,
-    color: "#a0aec0",
+    color: "#fff",
+    fontWeight: "bold",
+    marginTop: 10,
   },
 
   value: {
     fontSize: 16,
     color: "#fff",
+    fontWeight: "semi-bold",
   },
 
   confirmBtn: {
-    backgroundColor: "#2bb2ff",
-    paddingVertical: 14,
+    backgroundColor: "#006494",
+    paddingVertical: 15,
     borderRadius: 10,
-    marginTop: 70,
+    marginTop: 60,
     alignItems: "center",
+    width: '90%', 
+    marginHorizontal: 'center',
   },
 
   confirmText: {
     color: "#fff",
-    fontWeight: "600",
+    fontWeight: "500",
     fontSize: 16,
   },
 });

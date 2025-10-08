@@ -19,6 +19,15 @@ export default function ReservaConfirm({ navigation }) {
       style={styles.background}
     >
       {/* Back button */}
+      <TouchableOpacity
+        style={styles.backButton}
+        onPress={() => router.push('/reservas/reserva')}
+      >
+        <Image
+          source={require("../../assets/images/voltarBtn.png")}
+          style={styles.backIcon}
+        />
+      </TouchableOpacity>
 
 
       {/* Bottom sheet */}
@@ -49,8 +58,8 @@ export default function ReservaConfirm({ navigation }) {
 const styles = StyleSheet.create({
   background: {
     flex: 1,
-    width:500,
-    height: 600,
+    width:450,
+    height: 500,
     justifyContent: "flex-end", // keeps the sheet at the bottom
   },
 
@@ -59,7 +68,6 @@ const styles = StyleSheet.create({
     top: 60,
     left: 30,
     padding: 4,
-    backgroundColor: "rgba(0,0,0,0.3)",
     borderRadius: 20,
   },
 
@@ -74,7 +82,7 @@ const styles = StyleSheet.create({
     maxWidth: "100%",
     backgroundColor: "rgba(12,34,63)",
     borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
+    borderTopRightRadius: 50,
     padding: 20,
   },
 
@@ -88,30 +96,32 @@ const styles = StyleSheet.create({
   room: {
     fontSize: 16,
     color: "#fff",
-    marginBottom: 16,
+    marginBottom: 26,
   },
 
   label: {
-    fontSize: 14,
-    color: "#a0aec0",
+    fontSize: 20,
+    color: "#fff",
+    fontWeight: "bold",
   },
 
   value: {
     fontSize: 16,
     color: "#fff",
   },
-
   confirmBtn: {
-    backgroundColor: "#2bb2ff",
-    paddingVertical: 14,
-    borderRadius: 10,
-    marginTop: 70,
+    backgroundColor: "#006494",
+    paddingVertical: 15,
+    borderRadius: 12,
+    marginTop: 15,
     alignItems: "center",
+    width: '90%', 
+    marginHorizontal: 'center', 
   },
 
   confirmText: {
     color: "#fff",
-    fontWeight: "600",
-    fontSize: 16,
+    fontWeight: "500",
+    fontSize: 15,
   },
 });
