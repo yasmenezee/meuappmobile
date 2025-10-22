@@ -57,12 +57,7 @@ export default function HomeScreen() {
             <Text style={styles.buttonTextRegister}>Criar minha conta</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity
-            style={styles.buttonAltRoute}
-            onPress={() => router.push("/reservas/reservaConfirm")}
-          >
-            <Text style={styles.buttonTextRegister}>rota:</Text>
-          </TouchableOpacity>
+          {/* botão 'rota' removido */}
         </View>
       </View>
     </ImageBackground>
@@ -97,7 +92,7 @@ const styles = StyleSheet.create({
 
   buttonsContainer: {
     width: "100%",
-    marginBottom: 30,
+    marginBottom: 40,
   },
 
   logo: {
@@ -151,20 +146,12 @@ const styles = StyleSheet.create({
   },
   buttonRegister: {
     backgroundColor: "#00405C",
-    paddingVertical: 12,
+    paddingVertical: 13,
     borderRadius: 12,
     width: "100%",
     alignItems: "center",
   },
-    buttonAltRoute: {
-      marginTop: 20,
-      marginBottom: 20,
-    backgroundColor: "#00405C",
-    paddingVertical: 12,
-    borderRadius: 12,
-    width: "100%",
-    alignItems: "center",
-  },
+  
   buttonTextRegister: {
     color: "#fff",
     fontSize: 16,
@@ -174,7 +161,7 @@ const styles = StyleSheet.create({
     buttonRegister2: {
       justifyContent: "center",
     backgroundColor: "#6cadc9ff",
-    paddingVertical: 12,
+    paddingVertical: 13,
     borderRadius: 12,
     width: "100%",
     alignItems: "center",

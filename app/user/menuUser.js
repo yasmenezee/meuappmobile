@@ -15,7 +15,7 @@ export default function EditUser() {
 
                   <TouchableOpacity
                     style={styles.backButton}
-                    onPress={() => router.push("/home/home")}
+                    onPress={() => router.push("/user/userPage")}
                   >
                     <Image
                       source={require("../../assets/images/voltarBtn.png")}
@@ -56,7 +56,7 @@ export default function EditUser() {
 					value={phone}
 					onChangeText={setPhone}
 				/>
-				<TouchableOpacity style={styles.blueButton}>
+				<TouchableOpacity style={styles.blueButton} onPress={() => router.push("/auth/RecuperarSenha")}>
 					<Text style={styles.blueButtonText}>Alterar senha</Text>
 				</TouchableOpacity>
 				<TouchableOpacity style={styles.blueButton}>
@@ -142,12 +142,12 @@ const styles = StyleSheet.create({
 		borderRadius: 20,
 		paddingVertical: 12,
 		alignItems: 'center',
-		marginBottom: 30,
+		marginBottom: 20, // Reduced margin to make the button move up
 	},
 	blueButtonText: {
 		color: '#fff',
 		fontWeight: 'bold',
-		fontSize: 16,
+		fontSize: 14,
 	},
 	bottomNav: {
 		flexDirection: 'row',

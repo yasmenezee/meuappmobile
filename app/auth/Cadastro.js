@@ -10,8 +10,7 @@ import {
   ScrollView,
 } from "react-native";
 import { useRouter } from "expo-router";
-import { MaterialIcons } from "@expo/vector-icons";
-import { Ionicons } from "@expo/vector-icons";
+import { MaterialIcons, Ionicons } from "@expo/vector-icons";
 
 // Componente principal da tela de cadastro
 export default function Cadastro() {
@@ -20,7 +19,7 @@ export default function Cadastro() {
   const [email, setEmail] = useState("");
   const [telefone, setTelefone] = useState("");
   const [senha, setSenha] = useState("");
-  const [confirmSenha, setConfirmSenha] = useState("");
+  
   const router = useRouter();
 
   // Envia o formulário para criar um novo cliente
@@ -129,24 +128,7 @@ export default function Cadastro() {
             />
           </View>
 
-          {/* Campo Confirme a Senha */}
-          <Text style={styles.label}>Confirme a senha</Text>
-          <View style={styles.inputWrapper}>
-            <MaterialIcons
-              name="lock-outline"
-              size={15}
-              color="#000"
-              style={styles.icon}
-            />
-            <TextInput
-              style={[styles.input, { fontSize: 13 }]}
-              placeholder="Confirme sua senha"
-              placeholderTextColor="#000"
-              value={confirmSenha}
-              onChangeText={setConfirmSenha}
-              secureTextEntry
-            />
-          </View>
+          {/* Campo de confirmação removido */}
         </View>
         {/* Botão Criar Conta */}
         <TouchableOpacity onPress={handleSubmit} style={styles.button}>

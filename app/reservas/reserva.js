@@ -76,7 +76,7 @@ export default function ReservaHotel() {
 
         {/* Botão de reservar */}
         <TouchableOpacity
-          onPress={() => router.push(`/reservas/reservaConfirm`)}
+          onPress={() => router.push(`/reservas/reservaFinish`)}
           style={styles.botao}
         >
           <Text style={styles.textoBotao}>Reservar</Text>

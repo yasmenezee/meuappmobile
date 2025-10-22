@@ -21,7 +21,7 @@ export default function ReservaSuccess({ navigation }) {
       {/* Back button */}
       <TouchableOpacity
         style={styles.backButton}
-        onPress={() => navigation.goBack()}
+        onPress={() => router.push("/reservas/reserva")}
       >
         <Image
           source={require("../../assets/images/voltarBtn.png")}
@@ -57,8 +57,8 @@ export default function ReservaSuccess({ navigation }) {
 const styles = StyleSheet.create({
   background: {
     flex: 1,
-    width:410,
-    height: 500,
+    width: "100%",
+    height: "50%", // Adjusted to occupy half the screen
     justifyContent: "flex-end", // keeps the sheet at the bottom
   },
 
@@ -77,8 +77,8 @@ const styles = StyleSheet.create({
   },
 
   bottomSheet: {
-    height: 500,
-    maxWidth: 410,
+    height: '55%', // Adjusted to occupy half the screen
+    width: "100%",
     backgroundColor: "rgba(12,34,63)",
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
@@ -121,10 +121,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#006494",
     paddingVertical: 15,
     borderRadius: 10,
-    marginTop: 60,
+    marginTop: 50,
     alignItems: "center",
-    width: '90%', 
-    marginHorizontal: 'center',
+    width: '90%',
+    alignSelf: "center", // This centers the button itself in the container
   },
 
   confirmText: {
