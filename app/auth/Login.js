@@ -8,6 +8,8 @@ import {
     Image,
     ImageBackground,
     ScrollView,
+    KeyboardAvoidingView,
+    Platform,
 } from "react-native";
 import { useRouter } from "expo-router";
 import { MaterialIcons } from "@expo/vector-icons";
@@ -26,95 +28,111 @@ export default function Login() {
     };
 
     return (
-        <View style={{ flex: 1 }}>
-            {/* Imagem de topo */}
-            <View>
-                <ImageBackground
-                    source={require("../../assets/images/imagemCadastro.png")}
-                    style={styles.topImage}
-                >
-                    <View style={styles.overlay} />
-                </ImageBackground>
-            </View>
+        <KeyboardAvoidingView
+            style={{ flex: 1 }}
+            behavior={Platform.OS === "ios" ? "padding" : "height"}
+        >
             <ScrollView
                 contentContainerStyle={{ flexGrow: 1 }}
                 style={{ backgroundColor: "#0B2A3A" }}
+                keyboardShouldPersistTaps="handled"
             >
-                <View style={styles.formContainer}>
-                    {/* Logo e nome do hotel */}
-                    <View style={styles.headerRow}>
-                        <Image
-                            source={require("../../assets/images/Logo.png")}
-                            style={styles.logo}
-                        />
-                    </View>
-                </View>
-                <View style={styles.inputs}>
-                    {/* Campo Email */}
-                    <Text style={styles.label}>Email</Text>
-                    <View style={styles.inputWrapper}>
-                        <MaterialIcons
-                            name="alternate-email"
-                            size={15}
-                            color="#000"
-                            style={styles.icon}
-                        />
-                        <TextInput
-                            style={styles.input}
-                            placeholder="Digite seu email"
-                            placeholderTextColor="#000"
-                            value={email}
-                            onChangeText={setEmail}
-                            keyboardType="email-address"
-                        />
-                    </View>
-
-                    {/* Campo Senha */}
-                    <Text style={styles.label}>Senha</Text>
-                    <View style={styles.inputWrapper}>
-                        <MaterialIcons
-                            name="lock-outline"
-                            size={15}
-                            color="#000"
-                            style={styles.icon}
-                        />
-                        <TextInput
-                            style={styles.input}
-                            placeholder="Digite sua senha"
-                            placeholderTextColor="#000"
-                            value={senha}
-                            onChangeText={setSenha}
-                            secureTextEntry={!showPassword}
-                        />
-                        <TouchableOpacity
-                            onPress={() => setShowPassword((prev) => !prev)}
-                            style={{ marginLeft: 8 }}
+                <View style={{ flex: 1 }}>
+                    {/* Imagem de topo */}
+                    <View>
+                        <ImageBackground
+                            source={require("../../assets/images/imagemCadastro.png")}
+                            style={styles.topImage}
                         >
-                            <MaterialIcons
-                                name={showPassword ? "visibility-off" : "visibility"}
-                                size={20}
-                                color="#000"
-                            />
-                        </TouchableOpacity>
+                            <View style={styles.overlay} />
+                        </ImageBackground>
                     </View>
-                </View>
 
-                {/* Botão para entrar na home */}
-                <TouchableOpacity
-                    onPress={handleLogin}
-                    style={styles.button}
-                >
-                    <Text style={styles.buttonText}>Entrar</Text>
-                </TouchableOpacity>
+                    {/* Formulário */}
+                    <View style={styles.formContainer}>
+                        {/* Logo e nome do hotel */}
+                        <View style={styles.headerRow}>
+                            <Image
+                                source={require("../../assets/images/Logo.png")}
+                                style={styles.logo}
+                            />
+                        </View>
+                    </View>
+                    <View style={styles.inputs}>
+                        {/* Campo Email */}
+                        <Text style={styles.label}>Email</Text>
+                        <View style={styles.inputWrapper}>
+                            <MaterialIcons
+                                name="alternate-email"
+                                size={15}
+                                color="#000"
+                                style={styles.icon}
+                            />
+                            <TextInput
+                                style={styles.input}
+                                placeholder="Digite seu email"
+                                placeholderTextColor="#000"
+                                value={email}
+                                onChangeText={setEmail}
+                                keyboardType="email-address"
+                            />
+                        </View>
+
+                        {/* Campo Senha */}
+                        <Text style={styles.label}>Senha</Text>
+                        <View style={styles.inputWrapper}>
+                            <MaterialIcons
+                                name="lock-outline"
+                                size={15}
+                                color="#000"
+                                style={styles.icon}
+                            />
+                            <TextInput
+                                style={styles.input}
+                                placeholder="Digite sua senha"
+                                placeholderTextColor="#000"
+                                value={senha}
+                                onChangeText={setSenha}
+                                secureTextEntry={!showPassword}
+                            />
+                            <TouchableOpacity
+                                onPress={() => setShowPassword((prev) => !prev)}
+                                style={{ marginLeft: 8 }}
+                            >
+                                <MaterialIcons
+                                    name={showPassword ? "visibility-off" : "visibility"}
+                                    size={20}
+                                    color="#000"
+                                />
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+
+                    {/* Link para recuperar senha */}
+                    <TouchableOpacity 
+                        onPress={() => router.push("/auth/RecuperarSenha")}
+                        style={styles.forgotPasswordContainer}
+                    >
+                        <Text style={styles.forgotPasswordText}>Recuperar Senha</Text>
+                    </TouchableOpacity>
+
+                    {/* Botão para entrar na home */}
+                    <TouchableOpacity
+                        onPress={handleLogin}
+                        style={styles.button}
+                    >
+                        <Text style={styles.buttonText}>Entrar</Text>
+                    </TouchableOpacity>
+                </View>
             </ScrollView>
-        </View>
+        </KeyboardAvoidingView>
     );
 }
 
 const styles = StyleSheet.create({
     topImage: {
         width: "100%",
-        height: 381,
+        height: 420,
         resizeMode: "cover",
     },
     overlay: {
@@ -132,8 +150,6 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: "#0B2A3A",
         padding: 20,
-        borderTopLeftRadius: 25,
-        borderTopRightRadius: 25,
         marginTop: -60,
         paddingTop: 40,
     },
@@ -199,7 +215,14 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: "bold",
     },
-    sa: {
-        // Adicione estilo para o botão de recuperar senha se quiser
+    forgotPasswordContainer: {
+        alignItems: 'flex-end',
+        paddingRight: 20,
+        marginBottom: 10,
+    },
+    forgotPasswordText: {
+        color: '#fff',
+        fontSize: 14,
+        fontWeight: '500',
     },
 });

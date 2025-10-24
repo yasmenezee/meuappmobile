@@ -5,7 +5,6 @@ import {
     TextInput,
     TouchableOpacity,
     StyleSheet,
-    Image,
     ImageBackground,
     ScrollView,
 } from "react-native";
@@ -91,9 +90,9 @@ export default function Login() {
                     
                 </TouchableOpacity>
 
-                {/* Botão para entrar na home */}
+                {/* Botão para redefinir senha e voltar para login */}
                 <TouchableOpacity
-                    onPress={() => router.push("/auth/TelaInicial")}
+                    onPress={() => router.push("/auth/Login")}
                     style={styles.button}
                 >
                     <Text style={styles.buttonText}>Redefinir Senha</Text>
@@ -189,9 +188,6 @@ const styles = StyleSheet.create({
     buttonText: {
         color: "#fff",
         fontSize: 16,
-        fontWeight: "bold",
-    },
-    sa: {
-        // Adicione estilo para o botão de recuperar senha se quiser
+        fontWeight: "semibold",
     },
 });

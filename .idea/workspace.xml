@@ -8,11 +8,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/auth/Cadastro.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/auth/Cadastro.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/reservas/reserva.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/reservas/reserva.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/reservas/reservaConfirm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/reservas/reservaFinish.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/reservas/reservaFinish.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/auth/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/auth/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/auth/RecuperarSenha.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/auth/RecuperarSenha.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/auth/newpw.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/auth/newpw.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/auth/pwconfirm.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/auth/pwconfirm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/user/menuUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/user/menuUser.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/expo-env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/expo-env.d.ts" afterDir="false" />
     </list>
