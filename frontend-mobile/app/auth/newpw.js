@@ -238,7 +238,7 @@ const styles = StyleSheet.create({
     buttonText: {
         color: "#fff",
         fontSize: 16,
-        fontWeight: "bold",
+        fontWeight: "semibold",
     },
     sa: {
         // Adicione estilo para o botão de recuperar senha se quiser

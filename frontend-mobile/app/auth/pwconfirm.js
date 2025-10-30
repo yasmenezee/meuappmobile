@@ -5,9 +5,10 @@ import {
   TextInput,
   TouchableOpacity,
   StyleSheet,
-  ImageBackground,
   KeyboardAvoidingView,
   Platform,
+  Alert,
+  ImageBackground,
 } from "react-native";
 import { useRouter, useLocalSearchParams } from "expo-router";
 
@@ -118,7 +119,8 @@ export default function CodigoVerificacao() {
           <Text style={styles.description}>
             Digite o código de verificação que enviamos  {"\n"}  para o seu e-mail
           </Text>
-          <Text style={styles.description}>{email}</Text>
+            <Text style={styles.description}>{email}
+          </Text>
 
           {/* Container dos inputs de código */}
           <View style={styles.codigoContainer}>
@@ -160,7 +162,7 @@ export default function CodigoVerificacao() {
 const styles = StyleSheet.create({
   topImage: {
     width: "100%",
-    height: 374, 
+    height: 374,
     resizeMode: "cover",
   },
   overlay: {
@@ -204,7 +206,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#000",
   },
-  reenviarContainer: { // Posiciona logo abaixo dos inputs
+  reenviarContainer: {
     marginBottom: 30,
   },
   reenviarText: {

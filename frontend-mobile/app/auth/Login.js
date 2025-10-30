@@ -130,7 +130,7 @@ export default function Login() {
 const styles = StyleSheet.create({
     topImage: {
         width: "100%",
-        height: 381,
+        height: 420,
         resizeMode: "cover",
     },
     overlay: {
@@ -148,8 +148,6 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: "#0B2A3A",
         padding: 20,
-        borderTopLeftRadius: 25,
-        borderTopRightRadius: 25,
         marginTop: -60,
         paddingTop: 40,
     },
@@ -214,6 +212,16 @@ const styles = StyleSheet.create({
         color: "#fff",
         fontSize: 16,
         fontWeight: "bold",
+    },
+    forgotPasswordContainer: {
+        alignItems: 'flex-end',
+        paddingRight: 20,
+        marginBottom: 10,
+    },
+    forgotPasswordText: {
+        color: '#fff',
+        fontSize: 14,
+        fontWeight: '500',
     },
     sa: {
         // Adicione estilo para o botão de recuperar senha se quiser

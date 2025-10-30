@@ -49,8 +49,10 @@ export default function RecuperarSenha() {
     }
   };
 
+  // 👇 You were missing this return statement
   return (
     <View style={{ flex: 1 }}>
+      {/* Imagem de topo com overlay para escurecer a imagem */}
       <View>
         <ImageBackground
           source={require("../../assets/images/imagemCadastro.png")}
@@ -60,11 +62,13 @@ export default function RecuperarSenha() {
         </ImageBackground>
       </View>
 
+      {/* Container principal */}
       <View style={styles.container}>
         <Text style={styles.title}>Recuperar senha</Text>
         <Text style={styles.description}>
           Digite seu e-mail para receber o link {"\n"} de recuperação.
         </Text>
+
         <TextInput
           style={styles.input}
           placeholder="Digite seu email"
@@ -73,18 +77,19 @@ export default function RecuperarSenha() {
           value={email}
           onChangeText={setEmail}
         />
-        <TouchableOpacity
-          style={styles.button}
-          onPress={handleEnviar}
-          disabled={loading}
-        >
+
+        {/* Botão enviar */}
+        <TouchableOpacity style={styles.button} onPress={handleEnviar} disabled={loading}>
           <Text style={styles.buttonText}>{loading ? "Enviando..." : "Enviar"}</Text>
         </TouchableOpacity>
+
         {error ? (
           <Text style={{ color: "red", textAlign: "center", marginVertical: 8 }}>
             {error}
           </Text>
         ) : null}
+
+        {/* Link para voltar à tela de login */}
         <TouchableOpacity onPress={() => router.push("/auth/Login")}>
           <Text style={styles.voltar}>Voltar para o login</Text>
         </TouchableOpacity>
@@ -93,6 +98,7 @@ export default function RecuperarSenha() {
   );
 }
 
+// Estilos usados na tela
 const styles = StyleSheet.create({
   topImage: {
     width: "100%",
@@ -116,7 +122,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: "#FFF",
     marginVertical: 15,
-    fontWeight: "600", // 'intermediate' is invalid — replaced with numeric value
+    fontWeight: "intermediate",
     alignSelf: "center",
   },
   description: {
