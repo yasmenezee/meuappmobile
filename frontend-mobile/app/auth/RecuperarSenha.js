@@ -72,7 +72,7 @@ export default function RecuperarSenha() {
         <TextInput
           style={styles.input}
           placeholder="Digite seu email"
-          placeholderTextColor="#999"
+          placeholderTextColor="#000"
           keyboardType="email-address"
           value={email}
           onChangeText={setEmail}
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: "#FFF",
     marginVertical: 15,
-    fontWeight: "intermediate",
+    fontWeight: "bold",
     alignSelf: "center",
   },
   description: {
@@ -133,19 +133,19 @@ const styles = StyleSheet.create({
   },
   input: {
     backgroundColor: "#E8F1F2",
-    borderRadius: 10,
+    borderRadius: 14,
     paddingHorizontal: 15,
     paddingVertical: 12,
-    fontSize: 16,
+    fontSize: 15,
     marginBottom: 40,
     color: "#000",
   },
   button: {
     backgroundColor: "#006494",
-    borderRadius: 10,
-    paddingVertical: 16,
+    borderRadius: 15,
+    paddingVertical: 12,
     alignItems: "center",
-    marginBottom: 25,
+    marginBottom: 20,
   },
   buttonText: {
     color: "#fff",
